@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "9af9637426f95dbcbbbe",
+    "revision": "70e87372915c9373f7b3",
     "url": "/wake-up-in-surprise/static/css/main.ee0f0373.chunk.css"
   },
   {
-    "revision": "9af9637426f95dbcbbbe",
-    "url": "/wake-up-in-surprise/static/js/main.9af96374.chunk.js"
+    "revision": "70e87372915c9373f7b3",
+    "url": "/wake-up-in-surprise/static/js/main.70e87372.chunk.js"
   },
   {
     "revision": "7bc88e323dfded01db29",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/wake-up-in-surprise/static/media/alarm_clock.fa3ac914.svg"
   },
   {
-    "revision": "2b5f08e894a7fceef70352c67e0603e9",
+    "revision": "688897da0ed37ac861040221a1b65a13",
     "url": "/wake-up-in-surprise/index.html"
   }
 ];
