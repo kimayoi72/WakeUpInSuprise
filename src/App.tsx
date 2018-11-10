@@ -4,8 +4,22 @@ import AudioPlayer from './components/atoms/AudioPlayer'
 
 import logo from './logo.svg';
 import './App.css';
+import AudioFile from './libs/AudioModel';
+import { fetchAudioFiles } from './libs/ApiClient';
 
-class App extends Component {
+interface IAppState {
+  audioFiles: AudioFile[]
+}
+
+class App extends Component<{}, IAppState> {
+  constructor(props:Readonly<{}>) {
+    super(props)
+    this.state = { audioFiles: [] };
+  }
+  public async componentDidMount() {
+    const audioFiles = await fetchAudioFiles();
+    this.setState({ audioFiles });
+  }
   render() {
     return (
       <div className="App">
@@ -23,7 +37,12 @@ class App extends Component {
             Learn React
           </a>
         </header>
-        <AudioPlayer url="https://dl.last.fm/static/1541758312/131211148/0528f9c2cc9140584bc2c4fc6c9eac85b6c66fe58a4c064cd0b68cbeba633225/Death+Grips+-+Get+Got.mp3"/>
+        { this.state.audioFiles.map((audioFile) => (
+          <div key={audioFile.id} >
+            <div>"{audioFile.id}"</div>
+            <AudioPlayer url={audioFile.url} />
+          </div>
+        ))}
       </div>
     );
   }
