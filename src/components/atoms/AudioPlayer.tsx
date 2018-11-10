@@ -1,15 +1,17 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from "react";
 
 interface AudioPlayerProps {
-  url: string
+  url: string;
+  name?: string;
 }
 
-function AudioPlayer({ url }: AudioPlayerProps) {
-  const [isPlaying, setIsPlaying] = useState(false)
+function AudioPlayer({ url, name }: AudioPlayerProps) {
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const audioRef = React.createRef<HTMLAudioElement>();
 
-  function togglePlaying() {
+  function togglePlaying(e : React.SyntheticEvent) {
+    e.preventDefault();
     setIsPlaying(!isPlaying);
   }
 
@@ -21,18 +23,26 @@ function AudioPlayer({ url }: AudioPlayerProps) {
         audioRef.current.pause();
       }
     }
-  })
+  });
 
   return (
-    <div style={{color:'black'}}>
-      <div onClick={togglePlaying}>Audio {url}</div>
-      <div>Playing: {isPlaying?'playing':'paused'}</div>
-      <audio ref={audioRef} controls preload="" >
+    <div
+      style={{
+        backgroundColor: "black",
+        color: "white",
+        margin: "5px",
+        padding: "5px"
+      }}
+      onClick={togglePlaying}
+    >
+      <div>{name}</div>
+      <div>Playing: {isPlaying ? "playing" : "paused"}</div>
+      <audio ref={audioRef} preload="metadata" loop>
         <source src={url} type="audio/mpeg" />
         Browser does not support audio
       </audio>
     </div>
-  )
+  );
 }
 
-export default AudioPlayer
+export default AudioPlayer;

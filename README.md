@@ -1,6 +1,10 @@
+Wake Up in Surprise is a learning project in which i try to learn more about React, TypeScript, etc.
+
+A demo can be found [here](https://kimayoi72.github.io/wake-up-in-surprise/).
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-## Available Scripts
+# Available Scripts
 
 In the project directory, you can run:
 
@@ -9,8 +13,6 @@ In the project directory, you can run:
 Runs the app in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
 
 ### `npm test`
 
@@ -30,4 +32,4 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### `npm run deploy`
 
-Deploy to github pages (as described [here](https://github.com/gitname/react-gh-pages/blob/master/README.md)).
+Deploy to github pages (as described [here](https://facebook.github.io/create-react-app/docs/deployment#github-pages-https-pagesgithubcom)).
