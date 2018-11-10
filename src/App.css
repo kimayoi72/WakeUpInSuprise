@@ -66,7 +66,8 @@ html {
 
 .App-logo {
   animation: App-logo-spin infinite 20s linear;
-  height: 60%;
+  height: 80%;
+  width: 81%;
   margin:15px;
 }
 
