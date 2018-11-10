@@ -1,7 +1,7 @@
 import AudioFile from './AudioModel';
 
 const model : AudioFile[] = [
-  new AudioFile('Alien Spaceship UFO Sound', 'http://soundbible.com/grab.php?id=2213&type=mp3'),
+  new AudioFile('Alien Spaceship UFO Sound', 'https://soundbible.com/grab.php?id=2213&type=mp3'),
   new AudioFile('Unknown', 'https://dl.last.fm/static/1541758312/131211148/0528f9c2cc9140584bc2c4fc6c9eac85b6c66fe58a4c064cd0b68cbeba633225/Death+Grips+-+Get+Got.mp3')
 ]
 
