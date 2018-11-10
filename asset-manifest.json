@@ -1,7 +1,7 @@
 {
   "main.css": "/wake-up-in-surprise/static/css/main.ee0f0373.chunk.css",
-  "main.js": "/wake-up-in-surprise/static/js/main.66ec58ee.chunk.js",
-  "main.js.map": "/wake-up-in-surprise/static/js/main.66ec58ee.chunk.js.map",
+  "main.js": "/wake-up-in-surprise/static/js/main.9af96374.chunk.js",
+  "main.js.map": "/wake-up-in-surprise/static/js/main.9af96374.chunk.js.map",
   "static/js/1.7bc88e32.chunk.js": "/wake-up-in-surprise/static/js/1.7bc88e32.chunk.js",
   "static/js/1.7bc88e32.chunk.js.map": "/wake-up-in-surprise/static/js/1.7bc88e32.chunk.js.map",
   "runtime~main.js": "/wake-up-in-surprise/static/js/runtime~main.f61239cd.js",
@@ -9,6 +9,6 @@
   "static/media/alarm_clock.svg": "/wake-up-in-surprise/static/media/alarm_clock.fa3ac914.svg",
   "static/css/main.ee0f0373.chunk.css.map": "/wake-up-in-surprise/static/css/main.ee0f0373.chunk.css.map",
   "index.html": "/wake-up-in-surprise/index.html",
-  "precache-manifest.dfb55ec45b5131e7e9c93603dd2b2436.js": "/wake-up-in-surprise/precache-manifest.dfb55ec45b5131e7e9c93603dd2b2436.js",
+  "precache-manifest.96ab13d608ab09d9a2a6b957f238e4ab.js": "/wake-up-in-surprise/precache-manifest.96ab13d608ab09d9a2a6b957f238e4ab.js",
   "service-worker.js": "/wake-up-in-surprise/service-worker.js"
 }
