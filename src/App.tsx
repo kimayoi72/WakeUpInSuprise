@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import logo from "./assets/alarm_clock.svg";
+import logo from "./assets/abstract-vortex-2-512-247726.png";
 import "./App.css";
 
 import AudioFile from "./libs/AudioModel";
