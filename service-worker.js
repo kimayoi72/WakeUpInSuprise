@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/kimayoi72/wake-up-in-surprise/precache-manifest.a5a81329da75c19848380adebd23b699.js"
+  "/wake-up-in-surprise/precache-manifest.8cd39eabe09e249127084012b64bdfa4.js"
 );
 
 workbox.clientsClaim();
@@ -28,7 +28,7 @@ self.__precacheManifest = [].concat(self.__precacheManifest || []);
 workbox.precaching.suppressWarnings();
 workbox.precaching.precacheAndRoute(self.__precacheManifest, {});
 
-workbox.routing.registerNavigationRoute("/kimayoi72/wake-up-in-surprise/index.html", {
+workbox.routing.registerNavigationRoute("/wake-up-in-surprise/index.html", {
   
   blacklist: [/^\/_/,/\/[^\/]+\.[^\/]+$/],
 });
