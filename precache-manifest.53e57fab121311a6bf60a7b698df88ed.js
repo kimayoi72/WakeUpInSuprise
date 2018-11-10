@@ -1,11 +1,11 @@
 self.__precacheManifest = [
   {
-    "revision": "f96a7998d28ab712166a",
-    "url": "/wake-up-in-surprise/static/css/main.4ea44268.chunk.css"
+    "revision": "b4b2d1e5f2da459858f6",
+    "url": "/wake-up-in-surprise/static/css/main.f7b8a88b.chunk.css"
   },
   {
-    "revision": "f96a7998d28ab712166a",
-    "url": "/wake-up-in-surprise/static/js/main.f96a7998.chunk.js"
+    "revision": "b4b2d1e5f2da459858f6",
+    "url": "/wake-up-in-surprise/static/js/main.b4b2d1e5.chunk.js"
   },
   {
     "revision": "7bc88e323dfded01db29",
@@ -20,7 +20,7 @@ self.__precacheManifest = [
     "url": "/wake-up-in-surprise/static/media/abstract-vortex-2-512-247726.3c7db145.png"
   },
   {
-    "revision": "de70d85a9aa70d29a524453780985af0",
+    "revision": "5b7771f6b2bed99ab69ddd7c1cc0595b",
     "url": "/wake-up-in-surprise/index.html"
   }
 ];
