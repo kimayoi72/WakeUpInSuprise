@@ -1,15 +1,17 @@
-import React, { Component } from "react";
+import React, { Component } from 'react'
 import {
   BrowserRouter as Router,
   Route,
   Link,
-  withRouter
-} from "react-router-dom";
+  Switch
+} from 'react-router-dom';
+
+import { Alarm, Welcome, Upload } from './components/pages'
 
 import logo from "./assets/abstract-vortex-2-512-247726.png";
 import "./App.css";
 
-import { Alarm, Welcome, Upload } from "./components/pages";
+
 
 class App extends Component<{}> {
   render() {
@@ -34,9 +36,12 @@ class App extends Component<{}> {
             </ul>
           </nav>
           <main className="App-main">
-            <Route path="/" exact component={Welcome} />
-            <Route path="/upload" component={Upload} />
-            <Route path="/alarm" component={Alarm} />
+            <Switch>
+              <Route path="/" exact component={Welcome} />
+              <Route path="/upload" component={Upload} />
+              <Route path="/alarm" component={Alarm} />
+              <Route component={Welcome} />
+            </Switch>
           </main>
           <footer className="App-footer">
             <div>This application is made with 💜</div>

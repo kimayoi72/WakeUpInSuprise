@@ -9,7 +9,7 @@ interface IAlarmState {
   audioFiles: AudioFile[];
 }
 
-export class Alarm extends Component<{}, IAlarmState> {
+export default class Alarm extends Component<{}, IAlarmState> {
   constructor(props: Readonly<{}>) {
     super(props)
     this.state = { audioFiles: [] }
@@ -23,7 +23,7 @@ export class Alarm extends Component<{}, IAlarmState> {
   public render() {
     return (
       <div>
-        <div>Alarm</div>
+        <h1>Alarm</h1>
         <div>
           {this.state.audioFiles.map(audioFile => (
             <div key={audioFile.id}>
