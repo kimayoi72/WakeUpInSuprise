@@ -7,14 +7,14 @@ html {
 .App {
   display: grid;
   grid-gap: 0;
-  grid-template-columns: 10vw 80vw auto;
-  grid-template-rows: 10vh 83vh 5vh;
+  grid-template-columns: 10vw auto 10vw;
+  grid-template-rows: 5vh auto 78vh auto;
 }
 .App-header { grid-area: 1 / 1 / span 1 / span 3; }
-.App-footer { grid-area: 3 / 1 / span 1 / span 3; }
-.App-aside { grid-area: 2 / 3;}
-.App-main { grid-area: 2 / 2 / span 2; }
-
+.App-navigation { grid-area: 2 / 1 / span 1 / span 3; }
+.App-main { grid-area: 3 / 1 / span 1 / span 3; }
+.App-footer { grid-area: 4 / 1 / span 1 / span 3; }
+/* 
 @media only screen and (max-width: 550px) {
   .App {
     grid-template-rows: auto auto auto;
@@ -24,7 +24,7 @@ html {
   .App-header { grid-area: 3 / 1 / span 1 / span 3; }
   .App-aside { grid-area: 3 / 1 / span 1 / span 3; visibility: collapse;}
   .App-footer { grid-area: 2 / 1 / span 1 / span 3; }
-}
+} */
 
 /* ---------------------------- */
 
@@ -32,14 +32,26 @@ html {
   text-align: center;
 }
 
-
 .App-header {
   background-color: #efefef;
-  color: white;
+  color: #282828;
+  display:flex;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
+}
 
+.App-navigation {
+  background-color: #afafaf;
+}
+.App-navigation ul {
+  display:flex;
+  align-items: center;
+  justify-content: center;
+}
+.App-navigation li {
+  display: inline;
+  margin:10px;
 }
 
 .App-footer {
