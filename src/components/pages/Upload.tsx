@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { useState, useEffect } from "react";
 import Dropzone from "react-dropzone";
 
 export type FileContent = string | ArrayBuffer;
@@ -7,51 +7,50 @@ export interface UploadProps {
   onFileLoaded?: (file: File, content: FileContent) => void;
 }
 
-interface UploadState {
-  files: File[];
-}
+const Upload = ({ onFileLoaded }: UploadProps) => {
+  const defaultState: File[] = [];
+  const [files, setFiles] = useState(defaultState);
+  const [uploadedFiles, setUploadedFiles] = useState(defaultState);
 
-class Upload extends Component<UploadProps, UploadState> {
-  constructor(props: Readonly<UploadProps>) {
-    super(props);
-    this.state = { files: [] };
-  }
+  useEffect(
+    () => {
+      let localFileList: File[] = [];
+      files.forEach(file => {
+        const reader = new FileReader();
+        reader.onload = () => {
+          if (reader.result === null) {
+            return;
+          }
+          onFileLoaded && onFileLoaded(file, reader.result);
+          localFileList = localFileList.concat(file);
+          setUploadedFiles(localFileList);
+        };
+        reader.onabort = () => console.log("file reading was aborted");
+        reader.onerror = () => console.log("file reading has failed");
+        reader.readAsDataURL(file);
+      });
+    },
+    [files]
+  );
 
-  private onDrop = (acceptedFiles: File[]) => {
-    this.setState({ files: [] });
-
-    acceptedFiles.forEach(file => {
-      const reader = new FileReader();
-      reader.onload = () => {
-        if (reader.result === null) {
-          return;
-        }
-        const files = this.state.files.concat(file);
-        this.setState({ files });
-        this.props.onFileLoaded && this.props.onFileLoaded(file, reader.result);
-      };
-      reader.onabort = () => console.log("file reading was aborted");
-      reader.onerror = () => console.log("file reading has failed");
-      reader.readAsDataURL(file);
-    });
+  const onDrop = (acceptedFiles: File[]) => {
+    setUploadedFiles([]);
+    setFiles(acceptedFiles);
   };
 
-  public render() {
-    const {files} = this.state
-    return (
-      <Dropzone onDrop={this.onDrop}>
-        <div>Label</div>
-        <ul>
-          {files.map(file => (
-            <li key={file.name}>
-              {file.name} - {file.size}
-            </li>
-          ))}
-        </ul>
-      </Dropzone>
-    );
-  }
-}
+  return (
+    <Dropzone onDrop={onDrop}>
+      <div>Label</div>
+      <ul>
+        {uploadedFiles.map(file => (
+          <li key={file.name}>
+            {file.name} - {file.size}
+          </li>
+        ))}
+      </ul>
+    </Dropzone>
+  );
+};
 
 const UploadPage = () => {
   const onFileLoaded = (file: File, content: FileContent) => {
