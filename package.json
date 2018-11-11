@@ -1,6 +1,6 @@
 {
   "name": "wake-up-in-suprise",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Wake Up in Surprise - a simple alarm clock",
   "homepage": "https://kimayoi72.github.io/wake-up-in-surprise/",
   "private": true,
@@ -24,6 +24,7 @@
     "not op_mini all"
   ],
   "dependencies": {
+    "localforage": "^1.7.3",
     "react": "^16.7.0-alpha.0",
     "react-dom": "^16.7.0-alpha.0",
     "react-dropzone": "^7.0.1",
@@ -36,6 +37,7 @@
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
+    "@types/localforage": "^0.0.34",
     "@types/node": "^10.12.3",
     "@types/react": "^16.7.1",
     "@types/react-dom": "^16.0.9",

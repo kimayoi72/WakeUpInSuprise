@@ -1,4 +1,5 @@
 import AudioFile from './AudioModel';
+import { requestAudios } from './AudioResource';
 
 const model : AudioFile[] = [
   new AudioFile('Alien Spaceship UFO Sound', 'https://soundbible.com/grab.php?id=2213&type=mp3'),

@@ -17,7 +17,9 @@ const FileUpload = ({ onFileLoaded, accept = "audio/*" }: FileUploadProps) => {
     () => {
       let localFileList: File[] = [];
       files.forEach(file => {
-        const reader = new FileReader();
+        console.log(file)
+
+        const reader = new FileReader()
         reader.onload = () => {
           if (reader.result === null) {
             return;
@@ -51,7 +53,7 @@ const FileUpload = ({ onFileLoaded, accept = "audio/*" }: FileUploadProps) => {
     borderRadius: "5px",
     textAlign: "left",
   }
-  
+
   return (
     <Dropzone onDrop={onDrop} accept={accept} style={css}>
       <ul>
