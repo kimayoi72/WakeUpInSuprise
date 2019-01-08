@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox-sw.js");
 
 importScripts(
-  "/wake-up-in-surprise/precache-manifest.04cb3712b78a251507cf7531067d1f5b.js"
+  "/wake-up-in-surprise/precache-manifest.e1f76bbb6a652b6f7c7478e251f0f0fe.js"
 );
 
 workbox.clientsClaim();
