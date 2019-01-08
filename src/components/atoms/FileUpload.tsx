@@ -5,7 +5,7 @@ export type FileContent = string | ArrayBuffer;
 
 export interface FileUploadProps {
   onFileLoaded?: (file: File, content: FileContent) => void;
-  accept?: string
+  accept?: string;
 }
 
 interface FileUploadState {
@@ -32,40 +32,63 @@ class FileUpload extends Component<FileUploadProps, FileUploadState> {
     this.state = {
       files: [],
       uploadedFiles: []
-    }
+    };
   }
 
   onDrop = (acceptedFiles: File[]) => {
-    this.setState({
-      uploadedFiles: [],
-      files: acceptedFiles
-    }, () => {
-      let localFileList: File[] = [];
-      this.state.files.forEach(file => {
-        const reader = new FileReader()
-        reader.onload = () => {
-          if (reader.result === null) return;
-          this.props.onFileLoaded && this.props.onFileLoaded(file, reader.result);
-          localFileList = localFileList.concat(file);
-          this.setState({ uploadedFiles: localFileList})
-        };
-        reader.onabort = () => console.log("file reading was aborted");
-        reader.onerror = () => console.log("file reading has failed");
-        reader.readAsDataURL(file);
-      });
-    })
+    this.setState(
+      {
+        uploadedFiles: [],
+        files: acceptedFiles
+      },
+      () => {
+        let localFileList: File[] = [];
+        this.state.files.forEach(file => {
+          const reader = new FileReader();
+          reader.onload = () => {
+            if (reader.result === null) return;
+            this.props.onFileLoaded &&
+              this.props.onFileLoaded(file, reader.result);
+            localFileList = localFileList.concat(file);
+            this.setState({ uploadedFiles: localFileList });
+          };
+          reader.onabort = () => console.log("file reading was aborted");
+          reader.onerror = () => console.log("file reading has failed");
+          reader.readAsDataURL(file);
+        });
+      }
+    );
   };
 
   public render() {
     return (
-      <Dropzone onDrop={this.onDrop} accept={this.props.accept} style={css}>
-        <ul>
-          {this.state.uploadedFiles.map(file => (
-            <li key={file.name}>
-              {file.name} - {file.size}
-            </li>
-          ))}
-        </ul>
+      <Dropzone onDrop={this.onDrop} accept={this.props.accept}>
+        {({ getRootProps, getInputProps, isDragActive }) => {
+          return (
+            <div {...getRootProps()} style={css}>
+              <input {...getInputProps()} />
+              <ul>
+                {this.state.uploadedFiles.map(file => (
+                  <li key={file.name}>
+                    {file.name} - {file.size} bytes
+                  </li>
+                ))}
+              </ul>
+              {this.state.uploadedFiles.length == 0 ? (
+                isDragActive ? (
+                  <p>Drop files here...</p>
+                ) : (
+                  <p>
+                    Try dropping some files here, or click to select files to
+                    upload.
+                  </p>
+                )
+              ) : (
+                <p />
+              )}
+            </div>
+          );
+        }}
       </Dropzone>
     );
   }
