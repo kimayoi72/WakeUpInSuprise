@@ -32,12 +32,12 @@
     "react-router-dom": "^4.3.1",
     "react-scripts": "2.1.1",
     "react-sound": "^1.2.0",
-    "typescript": "^3.1.6"
+    "typescript": "^3.2.2"
   },
   "devDependencies": {
     "@types/jest": "^23.3.9",
     "@types/localforage": "^0.0.34",
-    "@types/node": "^10.12.3",
+    "@types/node": "^10.12.18",
     "@types/react": "^16.7.1",
     "@types/react-dom": "^16.0.11",
     "@types/react-dropzone": "^4.2.2",
