@@ -1,48 +1,62 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Component } from "react";
+import { render } from "react-dom";
 
 interface AudioPlayerProps {
   url: string;
   name?: string;
 }
 
-function AudioPlayer({ url, name }: AudioPlayerProps) {
-  const [isPlaying, setIsPlaying] = useState(false);
+interface AudioPlayerState {
+  isPlaying: boolean;
+}
 
-  const audioRef = React.createRef<HTMLAudioElement>();
+class AudioPlayer extends Component<AudioPlayerProps, AudioPlayerState> {
+  audioRef = React.createRef<HTMLAudioElement>();
 
-  function togglePlaying(e : React.SyntheticEvent) {
-    e.preventDefault();
-    setIsPlaying(!isPlaying);
+  constructor(props: Readonly<AudioPlayerProps>) {
+    super(props);
+    this.state = { isPlaying: false };
   }
 
-  useEffect(() => {
-    if (audioRef.current) {
-      if (isPlaying) {
-        audioRef.current.play();
+  togglePlaying = (e: React.SyntheticEvent) => {
+    e.preventDefault();
+    this.setState(
+      prevState => {
+        return { isPlaying: !prevState.isPlaying };
+      },
+      this.effectOnStateChange
+    );
+  };
+
+  effectOnStateChange() {
+    if (this.audioRef.current) {
+      if (this.state.isPlaying) {
+        this.audioRef.current.play();
       } else {
-        audioRef.current.pause();
+        this.audioRef.current.pause();
       }
     }
-  });
-
-  return (
-    <div
-      style={{
-        backgroundColor: "black",
-        color: "white",
-        margin: "5px",
-        padding: "5px"
-      }}
-      onClick={togglePlaying}
-    >
-      <div>{name}</div>
-      <div>Playing: {isPlaying ? "playing" : "paused"}</div>
-      <audio ref={audioRef} preload="metadata" loop>
-        <source src={url} type="audio/mpeg" />
-        Browser does not support audio
-      </audio>
-    </div>
-  );
+  }
+  public render() {
+    return (
+      <div
+        style={{
+          backgroundColor: "black",
+          color: "white",
+          margin: "5px",
+          padding: "5px"
+        }}
+        onClick={this.togglePlaying}
+      >
+        <div>{name}</div>
+        <div>Playing: {this.state.isPlaying ? "playing" : "paused"}</div>
+        <audio ref={this.audioRef} preload="metadata" loop>
+          <source src={this.props.url} type="audio/mpeg" />
+          Browser does not support audio
+        </audio>
+      </div>
+    );
+  }
 }
 
 export default AudioPlayer;
